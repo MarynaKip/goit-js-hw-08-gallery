@@ -23,8 +23,9 @@ const refs = {
   gallery: document.querySelector(".js-gallery"),
   image: document.querySelector(".lightbox__image"),
   lightbox: document.querySelector(".lightbox"),
+  closeButton: document.querySelector('button[data-action="close-lightbox"]'),
 };
-//console.log(refs.lightbox);
+console.log(refs.closeButton);
 
 refs.gallery.insertAdjacentHTML("afterbegin", insertedElementsText);
 
@@ -49,4 +50,12 @@ function onGalleryClick(event) {
 
   refs.image.src = originalImageURL;
   console.log(originalImageURL);
+}
+
+// Закрытие модального окна по клику на кнопку button[data-action="close-lightbox"].
+
+refs.closeButton.addEventListener("click", onButtonClick);
+
+function onButtonClick(event) {
+  refs.lightbox.classList.remove("is-open");
 }
