@@ -58,4 +58,7 @@ refs.closeButton.addEventListener("click", onButtonClick);
 
 function onButtonClick(event) {
   refs.lightbox.classList.remove("is-open");
+
+  // Очистка значения атрибута src элемента img.lightbox__image. Это необходимо для того, чтобы при следующем открытии модального окна, пока грузится изображение, мы не видели предыдущее.
+  refs.image.src = "";
 }
